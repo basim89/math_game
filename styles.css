@@ -1,9 +1,10 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('images/background.png'); /* Use relative path for GitHub */
+    background-image: url('images/background.png'); /* Ensure this path is correct */
     background-size: cover;
     text-align: center;
     padding: 20px;
+    margin: 0; /* Remove default margin for body */
 }
 
 .container {
@@ -70,6 +71,7 @@ h1 {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s;
+    max-width: 100px; /* Set max-width for buttons */
 }
 
 .option:hover {
@@ -103,4 +105,37 @@ h1 {
 
 .wrong {
     color: red;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .options {
+        flex-direction: column; /* Stack options vertically on smaller screens */
+        align-items: center; /* Center the buttons */
+    }
+
+    .option {
+        width: 100%; /* Make buttons take full width */
+        max-width: none; /* Remove max-width for buttons on mobile */
+        margin: 5px 0; /* Add margin between buttons */
+        padding: 15px; /* Adjust padding for mobile */
+        font-size: 18px; /* Adjust button text size */
+    }
+
+    .next-button {
+        width: 100%; /* Make button take full width */
+        max-width: none; /* Remove max-width for button on mobile */
+    }
+
+    h1 {
+        font-size: 24px; /* Adjust header size for smaller screens */
+    }
+
+    .score {
+        font-size: 16px; /* Adjust score size */
+    }
+
+    .question {
+        font-size: 20px; /* Adjust question size */
+    }
 }
