@@ -37,13 +37,13 @@ function checkAnswer(selectedOption) {
     if (selectedValue === questions[currentQuestion].answer) {
         resultElement.innerText = "إجابة صحيحة!";
         resultElement.className = "result correct";
-        playSound('sounds/correct.mp3'); // Correct audio file path
+        playSound('sounds/correct.mp3'); // Use relative path for GitHub
         score++;
         updateScore();
     } else {
         resultElement.innerText = "إجابة خاطئة!";
         resultElement.className = "result wrong";
-        playSound('sounds/wrong.mp3'); // Wrong audio file path
+        playSound('sounds/wrong.mp3'); // Use relative path for GitHub
     }
 }
 
