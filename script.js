@@ -37,13 +37,13 @@ function checkAnswer(selectedOption) {
     if (selectedValue === questions[currentQuestion].answer) {
         resultElement.innerText = "إجابة صحيحة!";
         resultElement.className = "result correct";
-        playSound('C:/Users/bloma/Desktop/math/sounds/correct.mp3');
+        playSound('sounds/correct.mp3'); // Correct audio file path
         score++;
         updateScore();
     } else {
         resultElement.innerText = "إجابة خاطئة!";
         resultElement.className = "result wrong";
-        playSound('C:/Users/bloma/Desktop/math/sounds/wrong.mp3');
+        playSound('sounds/wrong.mp3'); // Wrong audio file path
     }
 }
 
