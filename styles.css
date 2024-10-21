@@ -1,141 +1,89 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('images/background.png'); /* Ensure this path is correct */
-    background-size: cover;
     text-align: center;
-    padding: 20px;
-    margin: 0; /* Remove default margin for body */
+    background-color: #f0f0f0;
+    background-image: url('C:\\Users\\bloma\\Desktop\\test\\images\\background.png');
+    background-size: cover;
+    direction: rtl; /* Right-to-left layout for Arabic */
 }
 
 .container {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 600px;
-    margin: 0 auto;
+    margin-top: 50px;
 }
 
 h1 {
-    color: #333;
-    font-size: 30px;
     margin-bottom: 20px;
+    color: #FF6347; /* Tomato color */
+    font-size: 36px; /* Larger font size for the title */
 }
 
 .progress-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
+    width: 80%;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent background */
+    border-radius: 5px;
+    margin: 0 auto;
     margin-bottom: 20px;
 }
 
 .progress-bar {
-    width: 80%;
-    background-color: #ddd;
+    position: absolute;
+    height: 100%;
+    background-color: rgba(0, 128, 0, 0.7); /* Semi-transparent green */
+    width: 0;
     border-radius: 5px;
-    position: relative;
-}
-
-.progress-bar::before {
-    content: '';
-    display: block;
-    height: 20px;
-    background-color: #4CAF50;
-    border-radius: 5px;
-    transition: width 0.3s;
-    width: var(--progress, 0%);
+    transition: width 0.3s ease;
 }
 
 .score {
-    font-size: 18px;
-    color: #333;
+    margin-top: 10px;
+    font-size: 20px; /* Increased font size for score */
 }
 
 .question {
-    font-size: 24px;
+    font-size: 32px; /* Larger font size for question */
     margin-bottom: 20px;
+    color: #FF4500; /* Orange Red color for the question */
+    font-weight: bold; /* Bold font for question */
 }
 
 .options {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+    justify-content: center;
+    gap: 10px;
 }
 
 .option {
-    background-color: #4CAF50;
-    color: white;
+    padding: 15px 30px; /* Increased padding for buttons */
+    font-size: 20px; /* Larger font size for options */
+    background-color: #76c7c0;
     border: none;
-    padding: 20px 40px;
-    font-size: 20px;
-    cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s;
-    max-width: 100px; /* Set max-width for buttons */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition on hover */
 }
 
 .option:hover {
-    background-color: #45a049;
+    background-color: #5ba59f;
 }
 
 .result {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.next-button {
-    background-color: #008CBA;
-    color: white;
-    border: none;
-    padding: 15px 30px;
+    margin-top: 20px;
     font-size: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
 }
 
-.next-button:hover {
-    background-color: #007bb5;
-}
-
-.correct {
+.result.correct {
     color: green;
+    font-weight: bold; /* Bold font for correct answers */
 }
 
-.wrong {
+.result.wrong {
     color: red;
+    font-weight: bold; /* Bold font for wrong answers */
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .options {
-        flex-direction: column; /* Stack options vertically on smaller screens */
-        align-items: center; /* Center the buttons */
-    }
-
-    .option {
-        width: 100%; /* Make buttons take full width */
-        max-width: none; /* Remove max-width for buttons on mobile */
-        margin: 5px 0; /* Add margin between buttons */
-        padding: 15px; /* Adjust padding for mobile */
-        font-size: 18px; /* Adjust button text size */
-    }
-
-    .next-button {
-        width: 100%; /* Make button take full width */
-        max-width: none; /* Remove max-width for button on mobile */
-    }
-
-    h1 {
-        font-size: 24px; /* Adjust header size for smaller screens */
-    }
-
-    .score {
-        font-size: 16px; /* Adjust score size */
-    }
-
-    .question {
-        font-size: 20px; /* Adjust question size */
-    }
+#record {
+    margin-top: 15px;
+    font-size: 18px;
 }

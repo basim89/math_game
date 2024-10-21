@@ -2,6 +2,8 @@ let questions = [];
 let currentQuestion = 0;
 const totalQuestions = 10;
 let score = 0;
+let correctAnswers = 0; // To count correct answers
+let wrongAnswers = 0; // To count wrong answers
 
 function generateQuestions() {
     for (let i = 0; i < totalQuestions; i++) {
@@ -28,23 +30,28 @@ function loadQuestion() {
     for (let i = 0; i < options.length; i++) {
         options[i].innerText = questions[currentQuestion].options[i];
     }
-    updateProgressBar();
+    updateProgressBar(); // Update progress bar when question loads
 }
 
 function checkAnswer(selectedOption) {
     let resultElement = document.getElementById('result');
     let selectedValue = parseInt(selectedOption.innerText);
+    
     if (selectedValue === questions[currentQuestion].answer) {
         resultElement.innerText = "إجابة صحيحة!";
         resultElement.className = "result correct";
-        playSound('sounds/correct.mp3'); // Use relative path for GitHub
+        playSound('C:\\Users\\bloma\\Desktop\\test\\sounds\\correct.mp3');
         score++;
+        correctAnswers++; // Increment correct answers
         updateScore();
+        nextQuestion(); // Automatically load the next question
     } else {
         resultElement.innerText = "إجابة خاطئة!";
         resultElement.className = "result wrong";
-        playSound('sounds/wrong.mp3'); // Use relative path for GitHub
+        playSound('C:\\Users\\bloma\\Desktop\\test\\sounds\\wrong.mp3');
+        wrongAnswers++; // Increment wrong answers
     }
+    updateRecord(); // Update the correct/incorrect answers display
 }
 
 function nextQuestion() {
@@ -56,8 +63,14 @@ function nextQuestion() {
     } else {
         document.getElementById('question').innerText = "لقد انتهيت من جميع الأسئلة!";
         document.getElementById('result').innerText = `نقاطك: ${score} من ${totalQuestions}`;
-        document.getElementById('nextButton').style.display = 'none';
+        document.getElementById('record').innerText = `إجابات صحيحة: ${correctAnswers}، إجابات خاطئة: ${wrongAnswers}`;
+        updateProgressBarToEnd(); // Ensure progress bar reaches 100% on final question
     }
+}
+
+function updateProgressBarToEnd() {
+    let progressBar = document.getElementById('progress-bar');
+    progressBar.style.width = `100%`; // Set progress bar to 100% on last question
 }
 
 function playSound(soundFile) {
@@ -67,14 +80,19 @@ function playSound(soundFile) {
 
 function updateProgressBar() {
     let progressBar = document.getElementById('progress-bar');
-    let progress = (currentQuestion / totalQuestions) * 100;
-    progressBar.style.setProperty('--progress', `${progress}%`);
+    let progress = ((currentQuestion + 1) / totalQuestions) * 100; // Update to include last question
+    progressBar.style.width = `${progress}%`;
 }
 
 function updateScore() {
     document.getElementById('score').innerText = `النقاط: ${score}`;
 }
 
+function updateRecord() {
+    document.getElementById('record').innerText = `إجابات صحيحة: ${correctAnswers}، إجابات خاطئة: ${wrongAnswers}`;
+}
+
 generateQuestions();
 loadQuestion();
 updateScore();
+updateRecord();
