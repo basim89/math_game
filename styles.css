@@ -5,23 +5,30 @@ body {
     background-image: url('images/background.png'); /* Relative path */
     background-size: cover;
     direction: rtl; /* Right-to-left layout for Arabic */
+    margin: 0;
+    padding: 0;
 }
 
 .container {
     margin-top: 50px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for better readability */
+    border-radius: 10px; /* Rounded corners for the container */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adding shadow for depth */
 }
 
 h1 {
     margin-bottom: 20px;
     color: #FF6347; /* Tomato color */
-    font-size: 36px; /* Larger font size for the title */
+    font-size: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
 }
 
 .progress-container {
     position: relative;
-    width: 80%;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0.3); /* Transparent background */
+    width: 100%; /* Full width for mobile */
+    height: 20px; /* Reduced height for mobile */
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
     border-radius: 5px;
     margin: 0 auto;
     margin-bottom: 20px;
@@ -38,52 +45,78 @@ h1 {
 
 .score {
     margin-top: 10px;
-    font-size: 20px; /* Increased font size for score */
+    font-size: 22px; /* Adjusted font size for mobile */
+    color: #333; /* Darker color for contrast */
 }
 
 .question {
-    font-size: 32px; /* Larger font size for question */
+    font-size: 32px; /* Larger font size for emphasis */
     margin-bottom: 20px;
     color: #FF4500; /* Orange Red color for the question */
     font-weight: bold; /* Bold font for question */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle shadow for better readability */
 }
 
 .options {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column; /* Stack options vertically on mobile */
+    align-items: center; /* Center align buttons */
+    gap: 15px; /* Increased space between buttons */
 }
 
 .option {
-    padding: 15px 30px; /* Increased padding for buttons */
-    font-size: 20px; /* Larger font size for options */
-    background-color: #76c7c0;
+    width: 90%; /* Button width to be responsive */
+    padding: 15px; /* Increased padding for buttons */
+    font-size: 22px; /* Larger font size for options */
+    background-color: #76c7c0; /* Aqua color */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adding shadow to buttons */
 }
 
 .option:hover {
-    background-color: #5ba59f;
+    background-color: #5ba59f; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
 .result {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: bold; /* Bold for emphasis */
 }
 
 .result.correct {
     color: green;
-    font-weight: bold; /* Bold font for correct answers */
 }
 
 .result.wrong {
     color: red;
-    font-weight: bold; /* Bold font for wrong answers */
 }
 
 #record {
     margin-top: 15px;
-    font-size: 18px;
+    font-size: 22px; /* Adjusted font size for mobile */
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 24px; /* Smaller title for mobile */
+    }
+    
+    .question {
+        font-size: 26px; /* Smaller question text for mobile */
+    }
+
+    .option {
+        font-size: 20px; /* Adjusted option font size for mobile */
+        padding: 12px; /* Adjusted padding for buttons */
+    }
+    
+    .score,
+    #record {
+        font-size: 20px; /* Adjusted font size for mobile */
+    }
 }
