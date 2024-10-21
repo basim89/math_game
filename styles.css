@@ -2,7 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     text-align: center;
     background-color: #f0f0f0;
-    background-image: url('C:\\Users\\bloma\\Desktop\\test\\images\\background.png');
+    background-image: url('images/background.png'); /* Relative path */
     background-size: cover;
     direction: rtl; /* Right-to-left layout for Arabic */
 }

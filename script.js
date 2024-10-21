@@ -40,7 +40,7 @@ function checkAnswer(selectedOption) {
     if (selectedValue === questions[currentQuestion].answer) {
         resultElement.innerText = "إجابة صحيحة!";
         resultElement.className = "result correct";
-        playSound('C:\\Users\\bloma\\Desktop\\test\\sounds\\correct.mp3');
+        playSound('sounds/correct.mp3'); // Relative path
         score++;
         correctAnswers++; // Increment correct answers
         updateScore();
@@ -48,7 +48,7 @@ function checkAnswer(selectedOption) {
     } else {
         resultElement.innerText = "إجابة خاطئة!";
         resultElement.className = "result wrong";
-        playSound('C:\\Users\\bloma\\Desktop\\test\\sounds\\wrong.mp3');
+        playSound('sounds/wrong.mp3'); // Relative path
         wrongAnswers++; // Increment wrong answers
     }
     updateRecord(); // Update the correct/incorrect answers display
